@@ -52,7 +52,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   const balance = await balanceOf(address);
 
-  if (typeof balance === "number" && balance !== null && balance < 1) {
+  if (typeof balance === "number" && balance !== null && balance > 0) {
     try {
       const Bet = await BetForPrediction("1000000000000000");
       console.log(Bet);
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       post_url: `${process.env.BASE_URL}/redirect`,
       buttons: [
         {
-          label: `${balance}`,
+          label: `${typeof balance}`,
           action: "post_redirect",
         },
       ],
