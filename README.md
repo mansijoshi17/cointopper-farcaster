@@ -32,6 +32,7 @@ At its core, CoinTopper aims to create a comprehensive home for the crypto commu
 
 **Sign in with Privy** 
 
+
 ![1](https://github.com/Disha1998/Cointopper-Farcaster.README/assets/69969675/3e081f3f-5263-42c2-9af1-04f81607a245)
 
 ![2](https://github.com/Disha1998/Cointopper-Farcaster.README/assets/69969675/5e7f1ddb-0d6f-4c80-aece-47b75a744053)
