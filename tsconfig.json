@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "utils/contractAbi.json", "app/chat/page.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "utils/contractAbi.json", "app/chat/page.js", "app/component/chat/page.jsx"],
   "exclude": ["node_modules"]
 }

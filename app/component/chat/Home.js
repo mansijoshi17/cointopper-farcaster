@@ -158,7 +158,7 @@ export default function HomeChat({
     if (typeof window.ethereum !== "undefined") {
       try {
         await window.ethereum.enable();
-        const provider = new ethers.Web3Provider(window.ethereum);
+        const provider = new ethers.BrowserProvider(window.ethereum);
         const signer = provider.getSigner();
         setSigner(signer);
         setIsConnected(true);
