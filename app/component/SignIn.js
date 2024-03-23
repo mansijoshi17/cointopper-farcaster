@@ -18,8 +18,6 @@ export const Login = () => {
           >
             Logout
           </button>
-
-          <PollCreator />
         </>
       ) : (
         <div className="mt-6 flex justify-center text-center">
@@ -31,6 +29,7 @@ export const Login = () => {
           </button>
         </div>
       )}
+      <PollCreator />
     </div>
   );
 };
