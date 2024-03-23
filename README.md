@@ -19,14 +19,17 @@ At its core, CoinTopper aims to create a comprehensive home for the crypto commu
 
 **Prediction and Betting contract:**  https://github.com/mansijoshi17/cointopper-farcaster/tree/main/contract
 
-## Bounty 
 
-- https://github.com/Disha1998/Cointopper-Farcaster.README/blob/main/Bounty.md
+## Bounty: 
+
+- https://github.com/mansijoshi17/cointopper-farcaster/blob/main/Bounty.md
+  
 - https://github.com/mansijoshi17/cointopper-farcaster/blob/main/Base.md
+  
 - https://github.com/mansijoshi17/cointopper-farcaster/blob/main/Optimism.md
 
 
-## It include:
+## It includes:
 
 **Sign in with Privy** 
 
