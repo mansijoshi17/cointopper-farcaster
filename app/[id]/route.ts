@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPoll } from "@/utils/mint";
+import { getConnectedAddressForUser } from "@/utils/fc";
+import { getPoll, balanceOf } from "@/utils/mint";
 import { PinataFDK } from "pinata-fdk";
+import { BetForPrediction, BetAgainstPrediction } from "@/utils/mint";
 
 const fdk = new PinataFDK({
   pinata_jwt: process.env.PINATA_JWT as string,
@@ -42,60 +44,50 @@ export async function GET(req: NextRequest, res: NextResponse) {
 }
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  // const body = await req.json();
-  // const fid = body.untrustedData.fid;
-  // const address = await getConnectedAddressForUser(fid);
-  // const balance = await balanceOf(address);
-  // const { isValid, message } = await fdk.validateFrameMessage(body);
+  const pollLink = req.nextUrl.pathname.split("/").pop(); // Extract the poll link from the URL
+  const pollData: any = await getPoll(pollLink); // Retrieve the poll data based on the link
 
-  const frameMetadata = await fdk.getFrameMetadata({
-    post_url: `${process.env.BASE_URL}/redirect`,
-    buttons: [
-      {
-        label: "Want to learn more about crypto?",
-        action: "post_redirect",
+  const fid = pollData.fid;
+  const address = await getConnectedAddressForUser(fid);
+
+  const balance = await balanceOf(address);
+
+  if (typeof balance === "number" && balance !== null && balance < 1) {
+    try {
+      const Bet = await BetForPrediction("1000000000000000");
+      console.log(Bet);
+      const frameMetadata = await fdk.getFrameMetadata({
+        post_url: `${process.env.BASE_URL}/redirect`,
+        buttons: [
+          {
+            label: "Want to learn more about crypto?",
+            action: "post_redirect",
+          },
+        ],
+        image: {
+          url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/",
+        },
+      });
+
+      return new NextResponse(frameMetadata);
+    } catch (error) {
+      console.log(error);
+      return NextResponse.json({ error: error });
+    }
+  } else {
+    const frameMetadata = await fdk.getFrameMetadata({
+      post_url: `${process.env.BASE_URL}/redirect`,
+      buttons: [
+        {
+          label: "Want to learn more about crypto?",
+          action: "post_redirect",
+        },
+      ],
+      image: {
+        url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/",
       },
-    ],
-    image: {
-      url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/",
-    },
-  });
-  return new NextResponse(frameMetadata);
+    });
 
-  // if (typeof balance === "number" && balance !== null && balance < 1) {
-  //   try {
-  //     const mint = await mintNft(address);
-  //     console.log(mint);
-  //     const frameMetadata = await fdk.getFrameMetadata({
-  //       post_url: `${process.env.BASE_URL}/redirect`,
-  //       buttons: [
-  //         {
-  //           label: "Want to learn more about crypto?",
-  //           action: "post_redirect",
-  //           target: "https://cointopper.com/",
-  //         },
-  //       ],
-  //       image: { url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/" },
-  //     });
-
-  //     return new NextResponse(frameMetadata);
-  //   } catch (error) {
-  //     console.log(error);
-  //     return NextResponse.json({ error: error });
-  //   }
-  // } else {
-  //   const frameMetadata = await fdk.getFrameMetadata({
-  //     post_url: `${process.env.BASE_URL}/redirect`,
-  //     buttons: [
-  //       {
-  //         label: "Want to learn more about crypto?",
-  //         action: "post_redirect",
-  //         target: "https://cointopper.com/",
-  //       },
-  //     ],
-  //     image: { url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/" },
-  //   });
-
-  //   return new NextResponse(frameMetadata);
-  // }
+    return new NextResponse(frameMetadata);
+  }
 }

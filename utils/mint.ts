@@ -17,7 +17,6 @@ interface PollData {
   choices: string[];
 }
 
-
 const walletClient = createWalletClient({
   account,
   chain: baseSepolia,
@@ -33,6 +32,40 @@ export async function getPoll(pollId: string | undefined) {
         poll = res.data.data;
       });
     return poll;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export async function BetForPrediction(amount: string) {
+  try {
+    const { request }: any = await publicClient.simulateContract({
+      account,
+      address: contractAddress,
+      abi: contractAbi,
+      functionName: "betFor",
+      args: [amount],
+    });
+    const transaction = await walletClient.writeContract(request);
+    return transaction;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export async function BetAgainstPrediction(amount: string) {
+  try {
+    const { request }: any = await publicClient.simulateContract({
+      account,
+      address: contractAddress,
+      abi: contractAbi,
+      functionName: "betAgainst",
+      args: [amount],
+    });
+    const transaction = await walletClient.writeContract(request);
+    return transaction;
   } catch (error) {
     console.log(error);
     return error;
