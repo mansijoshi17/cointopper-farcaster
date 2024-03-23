@@ -75,19 +75,22 @@ export async function POST(req: NextRequest, res: NextResponse) {
       return NextResponse.json({ error: error });
     }
   } else {
-    const frameMetadata = await fdk.getFrameMetadata({
-      post_url: `${process.env.BASE_URL}/redirect`,
-      buttons: [
-        {
-          label: "Want to learn more about crypto?",
-          action: "post_redirect",
-        },
-      ],
-      image: {
-        url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/",
-      },
-    });
-
-    return new NextResponse(frameMetadata);
+    return NextResponse.json({ balance: balance, fid: fid, address: address });
   }
+  // else {
+  //   const frameMetadata = await fdk.getFrameMetadata({
+  //     post_url: `${process.env.BASE_URL}/redirect`,
+  //     buttons: [
+  //       {
+  //         label: "Want to learn more about crypto?",
+  //         action: "post_redirect",
+  //       },
+  //     ],
+  //     image: {
+  //       url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/",
+  //     },
+  //   });
+
+  //   return new NextResponse(frameMetadata);
+  // }
 }
