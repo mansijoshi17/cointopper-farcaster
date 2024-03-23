@@ -32,7 +32,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
         action: "post",
       })),
       image: {
-        url: `https://placehold.co/500x500/white/black?text=${pollData.title}%0AEnding In : ${formattedTime}`,
+        url: `https://placehold.co/500x500/white/black?text=${pollData.title}`,
       },
     });
     return new NextResponse(frameMetadata);
