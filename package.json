@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@farcaster/auth-kit": "^0.2.1",
+    "@livepeer/webrtmp-sdk": "^0.2.3",
     "@privy-io/react-auth": "^1.59.5",
+    "@xmtp/frames-client": "^0.4.2",
+    "@xmtp/react-sdk": "^5.2.0",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "ethers": "^6.11.1",

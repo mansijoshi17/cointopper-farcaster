@@ -34,6 +34,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
       image: {
         url: `https://placehold.co/500x500/white/black?text=${pollData.title}%0AEnding In : ${formattedTime}`,
       },
+      
     });
     return new NextResponse(frameMetadata);
   } else {
