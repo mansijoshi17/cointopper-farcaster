@@ -69,7 +69,7 @@ export const ConversationContainer = ({
     if (isEthDomain) {
       setLoadingResolve(true);
       try {
-        const provider = new ethers.providers.CloudflareProvider();
+        const provider = new ethers.CloudflareProvider();
         resolvedAddress = await provider.resolveName(resolvedAddress);
       } catch (error) {
         console.log(error);
