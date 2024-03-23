@@ -1,5 +1,10 @@
 # CoinTopper
 
+
+![20230107_104211](https://github.com/mansijoshi17/cointopper-farcaster/assets/69969675/d2f6d740-2b61-49df-af8b-aa9fb674a75d)
+
+
+
 #### CoinTopper is a SocialFi platform designed specifically for crypto enthusiasts. Built on the Farcaster, it offers a dynamic and interactive experience where users can engage in thought-provoking Q&A sessions, make bets on various crypto trends and price predictions using CoinTopper's prediction frame, and connect with fellow crypto enthusiasts through messaging or video using XMTP and Livepeer. 
 
 ![add a headingSo (640 x 360 px)](https://github.com/Disha1998/Cointopper-Farcaster.README/assets/69969675/2de9733e-bafb-4ca0-8724-7b9326a29134?raw=true)
