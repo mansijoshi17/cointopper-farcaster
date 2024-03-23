@@ -39,6 +39,7 @@ At its core, CoinTopper aims to create a comprehensive home for the crypto commu
 ![3](https://github.com/Disha1998/Cointopper-Farcaster.README/assets/69969675/3b9ae6ab-334b-4311-883d-fb60b4841e7a)
 
 
+
 **Create a prediction**
 
 ![4](https://github.com/Disha1998/Cointopper-Farcaster.README/assets/69969675/1624f270-db71-4186-b26c-ba2821d05c48)
