@@ -22,8 +22,8 @@ At its core, CoinTopper aims to create a comprehensive home for the crypto commu
 ## Bounty 
 
 - https://github.com/Disha1998/Cointopper-Farcaster.README/blob/main/Bounty.md
-- https://github.com/Disha1998/Cointopper-Farcaster.README/blob/main/Optimism.md
-- https://github.com/Disha1998/Cointopper-Farcaster.README/blob/main/Optimism.md
+- https://github.com/mansijoshi17/cointopper-farcaster/blob/main/Base.md
+- https://github.com/mansijoshi17/cointopper-farcaster/blob/main/Optimism.md
 
 
 ## It include:
