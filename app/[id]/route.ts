@@ -54,7 +54,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   if (typeof balance === "number" && balance !== null && balance > 0) {
     try {
-      const Bet = await BetForPrediction("1000000000000000");
+      const Bet = await BetAgainstPrediction("1000000000000000");
       console.log(Bet);
       const frameMetadata = await fdk.getFrameMetadata({
         post_url: `${process.env.BASE_URL}/redirect`,
