@@ -156,14 +156,14 @@ const PollCreator = () => {
                       {index + 1}. {poll.title}
                     </p>
                   </div>
-                  
+
                   <a
-                    href={`https://cointopper-farcaster.vercel.app/${poll._id}`}
+                    href={`https://warpcast.com/~/compose?embeds%5B%5D=https://cointopper-farcaster.vercel.app/${poll._id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
-                    View Poll
+                    Warpcast
                   </a>
                 </div>
               </li>
