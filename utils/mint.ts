@@ -38,7 +38,7 @@ export async function getPoll(pollId: string | undefined) {
   }
 }
 
-export async function BetForPrediction(amount: string) {
+export async function BetForPrediction(amount: bigint) {
   try {
     const { request }: any = await publicClient.simulateContract({
       account,
@@ -55,7 +55,7 @@ export async function BetForPrediction(amount: string) {
   }
 }
 
-export async function BetAgainstPrediction(amount: string) {
+export async function BetAgainstPrediction(amount: bigint) {
   try {
     const { request }: any = await publicClient.simulateContract({
       account,

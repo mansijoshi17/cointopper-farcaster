@@ -3,6 +3,7 @@ import { getConnectedAddressForUser } from "@/utils/fc";
 import { getPoll, balanceOf } from "@/utils/mint";
 import { PinataFDK } from "pinata-fdk";
 import { BetForPrediction, BetAgainstPrediction } from "@/utils/mint";
+import { ethers } from "ethers";
 
 const fdk = new PinataFDK({
   pinata_jwt: process.env.PINATA_JWT as string,
@@ -54,7 +55,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   if (typeof balance === "number" && balance !== null && balance > 0) {
     try {
-      const Bet = await BetAgainstPrediction("1000000000000000");
+      const Bet = await BetForPrediction(ethers.parseUnits("0.001", "ether"));
       console.log(Bet);
       const frameMetadata = await fdk.getFrameMetadata({
         post_url: `${process.env.BASE_URL}/redirect`,
