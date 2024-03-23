@@ -65,7 +65,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
           },
         ],
         image: {
-          url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/",
+          url: `https://placehold.co/500x500/white/black?text=${address}}`,
         },
       });
 
@@ -75,7 +75,19 @@ export async function POST(req: NextRequest, res: NextResponse) {
       return NextResponse.json({ error: error });
     }
   } else {
-    return NextResponse.json({ balance: balance });
+    const frameMetadata = await fdk.getFrameMetadata({
+      post_url: `${process.env.BASE_URL}/redirect`,
+      buttons: [
+        {
+          label: `${balance}`,
+          action: "post_redirect",
+        },
+      ],
+      image: {
+        url: "https://bafybeia6w3skqj5uhgfvnma22ycprlyznpthj52eo5x5gflkg4i7meenuy.ipfs.dweb.link/",
+      },
+    });
+    return new NextResponse(frameMetadata);
   }
   // else {
   //   const frameMetadata = await fdk.getFrameMetadata({
