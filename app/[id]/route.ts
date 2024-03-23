@@ -75,7 +75,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       return NextResponse.json({ error: error });
     }
   } else {
-    return NextResponse.json({ balance: balance, fid: fid, address: address });
+    return NextResponse.json({ balance: balance });
   }
   // else {
   //   const frameMetadata = await fdk.getFrameMetadata({
