@@ -94,8 +94,8 @@ export async function balanceOf(address: string) {
     const balanceData = await publicClient.readContract({
       address: contractAddress,
       abi: contractAbi,
-      functionName: "balanceOf",
-      args: [address as `0x`, 0],
+      functionName: "getBalance",
+      args: [address],
     });
     const balance: number = Number(balanceData);
     return balance;
